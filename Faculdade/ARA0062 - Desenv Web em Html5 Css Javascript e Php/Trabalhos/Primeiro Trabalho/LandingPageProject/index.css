@@ -1,0 +1,42 @@
+
+
+h1{
+  text-align:center
+}
+
+h2{
+  text-align:center
+}
+
+h3{
+  text-align:center
+}
+
+.tr_slide {
+  height: 302pt;
+
+}
+.tr_slidet1 {
+  background-color:#f3f5f8
+}
+  
+.tr_slidet2 {
+  background-color:white
+}
+
+.tr_emailrow {
+  align-items: baseline;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-item-left {
+  flex: 50%;
+}
+
+.flex-item-right {
+  flex: 50%;
+}
