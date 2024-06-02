@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="PlanoDeSaudeIMC.js"></script>
+</head>
+<body>
+    <label for="peso">Peso:</label>
+    <input type="text" id="peso" name="peso" value="85"><br><br>
+    <label for="altura">Altura:</label>
+    <input type="text" id="altura" name="altura" value="172"><br><br>
+    <label for="idade">Idade:</label>
+    <input type="text" id="idade" name="idade" value="41"><br><br>
+    <button class="btn btn-primary" onclick="main()">
+        Calcular IMC
+    </button>
+    <button class="btn btn-primary" onclick="main(altura, peso, idade)">
+        Comparar Planos
+    </button>
+    <h1 id="linebreak1">##############################</h1>
+    <h1 id="imc"></h1>
+    <h1 id="classificacao"></h1>
+    <h1 id="comorbidade"></h1>
+    <h1 id="linebreak2">##############################</h1>
+    <h1 id="precoplanoabasico"></h1>
+    <h1 id="precoplanoastandard"></h1>
+    <h1 id="precoplanoapremium"></h1>
+    <h1 id="linebreak3">##############################</h1>
+    <h1 id="precoplanobbasico"></h1>
+    <h1 id="precoplanobstandard"></h1>
+    <h1 id="precoplanobpremium"></h1>
+</body>
+</html>
