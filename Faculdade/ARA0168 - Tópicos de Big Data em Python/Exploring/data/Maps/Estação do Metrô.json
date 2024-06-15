@@ -1,0 +1,37 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "id": "1", "nome": "Estação Central Chico da Silva", "endereco": "Rua Padre Mororó, 405" }, "geometry": { "type": "Point", "coordinates": [ -38.535879, -3.720495 ] } },
+{ "type": "Feature", "properties": { "id": "2", "nome": "Estação José de Alencar", "endereco": "Avenida Tristão Gonçalves, 511" }, "geometry": { "type": "Point", "coordinates": [ -38.532781, -3.725971 ] } },
+{ "type": "Feature", "properties": { "id": "3", "nome": "Estação São Benedito", "endereco": "Avenida Tristão Gonçalves, 1174" }, "geometry": { "type": "Point", "coordinates": [ -38.534684, -3.731792 ] } },
+{ "type": "Feature", "properties": { "id": "4", "nome": "Estação Benfica", "endereco": "Avenida Carapinima, 2087" }, "geometry": { "type": "Point", "coordinates": [ -38.539539, -3.739172 ] } },
+{ "type": "Feature", "properties": { "id": "5", "nome": "Estação Padre Cícero", "endereco": "Av. José Bastos, em frente ao Campo do Ceará" }, "geometry": { "type": "Point", "coordinates": [ -38.545691399999953, -3.745471399999929 ] } },
+{ "type": "Feature", "properties": { "id": "6", "nome": "Estação Porangabussu", "endereco": "Rua Professor Costa Mendes, 1455" }, "geometry": { "type": "Point", "coordinates": [ -38.551146, -3.751058 ] } },
+{ "type": "Feature", "properties": { "id": "7", "nome": "Estação Couto Fernandes", "endereco": "Avenida José Bastos, 4655" }, "geometry": { "type": "Point", "coordinates": [ -38.557609, -3.757525 ] } },
+{ "type": "Feature", "properties": { "id": "8", "nome": "Estação Juscelino Kubitschek", "endereco": "Av João Pessoa, em frente ao Bar do Avião" }, "geometry": { "type": "Point", "coordinates": [ -38.559925, -3.766415799999948 ] } },
+{ "type": "Feature", "properties": { "id": "9", "nome": "Estação Parangaba", "endereco": "Avenida Carlos Amora, 190" }, "geometry": { "type": "Point", "coordinates": [ -38.563492099999962, -3.775505599999974 ] } },
+{ "type": "Feature", "properties": { "id": "10", "nome": "Estação Vila Pery", "endereco": "Rua Cônego de Castro , 1399" }, "geometry": { "type": "Point", "coordinates": [ -38.572204299999953, -3.783983299999932 ] } },
+{ "type": "Feature", "properties": { "id": "11", "nome": "Estação Manoel Sátiro", "endereco": "Rua Manoel Sátiro, 599" }, "geometry": { "type": "Point", "coordinates": [ -38.575063, -3.798578 ] } },
+{ "type": "Feature", "properties": { "id": "12", "nome": "Estação Modumbim", "endereco": "Rua Manoel Sátiro, 1155" }, "geometry": { "type": "Point", "coordinates": [ -38.577874, -3.807816 ] } },
+{ "type": "Feature", "properties": { "id": "13", "nome": "Estação Esperança", "endereco": "Avenida Penetração Leste, 104" }, "geometry": { "type": "Point", "coordinates": [ -38.585481, -3.817202 ] } },
+{ "type": "Feature", "properties": { "id": "14", "nome": "Estação Aracapé", "endereco": "Rua Manoel Sátiro, 2698" }, "geometry": { "type": "Point", "coordinates": [ -38.591846, -3.826898 ] } },
+{ "type": "Feature", "properties": { "id": "15", "nome": "Estação Alto Alegre", "endereco": "Avenida do Anel Viário c\/ Viaduto sobre a Via Férrea" }, "geometry": { "type": "Point", "coordinates": [ -38.60064, -3.839613 ] } },
+{ "type": "Feature", "properties": { "id": "16", "nome": "Estação Raquel de Queiroz", "endereco": "Avenida Central Sul, 77" }, "geometry": { "type": "Point", "coordinates": [ -38.608483399999955, -3.850978299999952 ] } },
+{ "type": "Feature", "properties": { "id": "17", "nome": "Estação Virgílio Távora", "endereco": "Avenida Parque Sul" }, "geometry": { "type": "Point", "coordinates": [ -38.620414099999948, -3.867551299999946 ] } },
+{ "type": "Feature", "properties": { "id": "18", "nome": "Estação Maracanaú", "endereco": "Praça Henrique Mendes" }, "geometry": { "type": "Point", "coordinates": [ -38.625572, -3.8779 ] } },
+{ "type": "Feature", "properties": { "id": "19", "nome": "Estação Jereissati", "endereco": "Rua Manoel Pereira, 389" }, "geometry": { "type": "Point", "coordinates": [ -38.62694, -3.887563 ] } },
+{ "type": "Feature", "properties": { "id": "20", "nome": "Estação Carlito Benevides", "endereco": "Rua Dezessete, 01" }, "geometry": { "type": "Point", "coordinates": [ -38.620535, -3.895035 ] } },
+{ "type": "Feature", "properties": { "id": "21", "nome": "Estação Moura Brasil", "endereco": "Rua Adarias de Lima, quase esquina com rua Padre Mororó" }, "geometry": { "type": "Point", "coordinates": [ -38.538376, -3.71879 ] } },
+{ "type": "Feature", "properties": { "id": "22", "nome": "Estação Álvaro Weyne ", "endereco": "Avenida Tenente Lisboa, 3566," }, "geometry": { "type": "Point", "coordinates": [ -38.56497, -3.720324 ] } },
+{ "type": "Feature", "properties": { "id": "23", "nome": "Estação Padre Andrade", "endereco": "Avenida Tenente Lisboa, 870" }, "geometry": { "type": "Point", "coordinates": [ -38.581726, -3.730318 ] } },
+{ "type": "Feature", "properties": { "id": "24", "nome": "Estação Antônio Bezerra", "endereco": "Rua José Aciolly, 244" }, "geometry": { "type": "Point", "coordinates": [ -38.591578, -3.734692 ] } },
+{ "type": "Feature", "properties": { "id": "25", "nome": "Estação São Miguel", "endereco": "Rua São Mateus, 201" }, "geometry": { "type": "Point", "coordinates": [ -38.602958, -3.749565 ] } },
+{ "type": "Feature", "properties": { "id": "26", "nome": "Estação Parque Albano", "endereco": "Av. F, esquina com a avenida J" }, "geometry": { "type": "Point", "coordinates": [ -38.612276, -3.758199 ] } },
+{ "type": "Feature", "properties": { "id": "27", "nome": "Estação Conjunto Ceará", "endereco": "Av. J, esquina com a rua 1038" }, "geometry": { "type": "Point", "coordinates": [ -38.615323, -3.765152 ] } },
+{ "type": "Feature", "properties": { "id": "28", "nome": "Estação Jurema", "endereco": "Rua NovaIguaju, Parque Guadalajara" }, "geometry": { "type": "Point", "coordinates": [ -38.622114699999941, -3.769557799999973 ] } },
+{ "type": "Feature", "properties": { "id": "29", "nome": "Estação Araturi", "endereco": "Avenida Contorno Oeste Norte, 1508" }, "geometry": { "type": "Point", "coordinates": [ -38.640037, -3.762594 ] } },
+{ "type": "Feature", "properties": { "id": "30", "nome": "Estação Caucaia", "endereco": "Rua Coronel Correia, S\/N" }, "geometry": { "type": "Point", "coordinates": [ -38.660873, -3.735765 ] } }
+]
+}

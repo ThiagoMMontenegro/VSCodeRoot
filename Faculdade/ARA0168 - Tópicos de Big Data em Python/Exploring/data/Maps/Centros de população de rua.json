@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "id": "1", "codigo": "23037096300", "nome": "Centro Especializado População de rua - Caucaia", "endereco": "Pedro Gomes da Rocha", "numero": "63", "bairro": "Centro", "cep": "61600-120", "municipio": "Caucaia" }, "geometry": { "type": "Point", "coordinates": [ -38.656, -3.733 ] } },
+{ "type": "Feature", "properties": { "id": "2", "codigo": "23042098000", "nome": "Centro Especializado População de rua - Crato", "endereco": "Teófilo Siqueira", "numero": "684", "bairro": "Centro", "cep": "63100-010", "municipio": "Crato" }, "geometry": { "type": "Point", "coordinates": [ -39.409, -7.234 ] } },
+{ "type": "Feature", "properties": { "id": "3", "codigo": "23044095900", "nome": "Centro Especializado População de rua - José Bonifácio", "endereco": "Jaime Benévolo", "numero": "1059", "bairro": "José Bonifácio", "cep": "60050-081", "municipio": "Fortaleza" }, "geometry": { "type": "Point", "coordinates": [ -38.5283553600311, -3.74162643739466 ] } },
+{ "type": "Feature", "properties": { "id": "4", "codigo": "23044097700", "nome": "Centro Especializado População de rua - Damas", "endereco": "João Pessoa", "numero": "4180", "bairro": "Damas", "cep": "60425-812", "municipio": "Fortaleza" }, "geometry": { "type": "Point", "coordinates": [ -38.546122312545698, -3.74936681748913 ] } },
+{ "type": "Feature", "properties": { "id": "5", "codigo": "23073097200", "nome": "Centro Especializado População de rua - Juazeiro do Norte", "endereco": "Leandro Bezerra", "numero": "153", "bairro": "Salgadinho", "cep": "63011-010", "municipio": "Juazeiro do Norte" }, "geometry": { "type": "Point", "coordinates": [ -39.320250749587998, -7.20065058094023 ] } },
+{ "type": "Feature", "properties": { "id": "6", "codigo": "23076597200", "nome": "Centro Especializado População de rua - Maracanaú", "endereco": "X", "numero": "100", "bairro": "Jereissati II", "cep": "61905-180", "municipio": "Maracanaú" }, "geometry": { "type": "Point", "coordinates": [ -38.626, -3.877 ] } },
+{ "type": "Feature", "properties": { "id": "7", "codigo": "23096098100", "nome": "CENTRO POP - Ione Damasceno Queiroz Menezes", "endereco": "Dedé Gama", "numero": "534", "bairro": "Croatá II", "cep": "62870-000", "municipio": "Pacajus" }, "geometry": { "type": "Point", "coordinates": [ -38.4571205, -4.1730757 ] } },
+{ "type": "Feature", "properties": { "id": "8", "codigo": "23097098100", "nome": "Centro Especializado População de rua -Pacatuba", "endereco": "João Clementino de Souza", "numero": "1460", "bairro": "Centro", "cep": "61800-000", "municipio": "Pacatuba" }, "geometry": { "type": "Point", "coordinates": [ -38.62, -3.984 ] } },
+{ "type": "Feature", "properties": { "id": "9", "codigo": "23129097900", "nome": "Centro Especializado População de rua -Sobral", "endereco": "Dom José", "numero": "2139", "bairro": "Centro", "cep": "62010-290", "municipio": "Sobral" }, "geometry": { "type": "Point", "coordinates": [ -40.355798006057697, -3.69197076047837 ] } }
+]
+}

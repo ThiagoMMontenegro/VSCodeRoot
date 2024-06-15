@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimes Sexuais</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        .custom-img {
+            width: 100%;
+            height: auto;
+        }
+        .grafico-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .grafico-container > div {
+            flex: 1 1 100%;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function toggleTable() {
+            var fullTable = document.getElementById('fullTable');
+            var moreButton = document.getElementById('moreButton');
+            if (fullTable.style.display === 'none') {
+                fullTable.style.display = 'block';
+                moreButton.innerText = 'Ver Menos';
+            } else {
+                fullTable.style.display = 'none';
+                moreButton.innerText = 'Ver Mais';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Crimes Sexuais</h1>
+        
+        <!-- Exibir o total de crimes sexuais -->
+        <h2>Total de Crimes Sexuais: {{ total_crimes }}</h2>
+
+        <div class="grafico-container">
+            <!-- Gráfico de Idade -->
+            <div>
+                <h2>Distribuição por Idade</h2>
+                <img src="data:image/png;base64,{{ grafico_idade }}" alt="Gráfico de Idade" class="custom-img">
+            </div>
+            <!-- Gráfico de Raça -->
+            <div>
+                <h2>Distribuição por Raça</h2>
+                <img src="data:image/png;base64,{{ grafico_raca }}" alt="Gráfico de Raça" class="custom-img">
+            </div>
+            <!-- Gráfico por Dia da Semana -->
+            <div>
+                <h2>Percentual de Vítimas de Crimes Sexuais por Dia da Semana</h2>
+                <img src="data:image/png;base64,{{ grafico_dia_semana }}" alt="Gráfico por Dia da Semana" class="custom-img">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <!-- Tabela de Idades -->
+            <div class="col-md-12">
+                <h2>Tabela de Idades</h2>
+                <h3>Top 10 Idades</h3>
+                {{ top_10_table|safe }}
+                <button id="moreButton" class="btn btn-primary mt-3" onclick="toggleTable()">Ver Mais</button>
+                <div id="fullTable" style="display: none;">
+                    <h3>Tabela Completa</h3>
+                    {{ table|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+ChatGPT
+Para integrar corretamente os gráficos e dados no seu código HTML existente, você pode seguir as modificações abaixo:
+
+Código Flask (Python)
+Primeiro, verifique se o código Flask gera corretamente os gráficos e dados necessários:
+
+python
+Copiar código
+from flask import Flask, render_template
+import pandas as pd
+import matplotlib.pyplot as plt
+import io
+import base64
+
+app = Flask(__name__)
+
+# Carregar os dados do Excel
+arquivo_excel = 'C:\\Users\\Lenovo\\Downloads\\Crimes-Sexuais_2009-a-2023.xlsx'
+df_crimes_sexuais = pd.read_excel(arquivo_excel)
+
+# Verificar o número total de crimes sexuais
+total_crimes = df_crimes_sexuais.shape[0]  # Total de linhas no DataFrame
+print("Total de Crimes Sexuais:", total_crimes)
+
+# Converter a coluna 'Idade da Vítima' para numérica, ignorando erros
+df_crimes_sexuais['Idade da Vítima'] = pd.to_numeric(df_crimes_sexuais['Idade da Vítima'], errors='coerce')
+
+# Remover valores NaN, se houver
+df_crimes_sexuais.dropna(subset=['Idade da Vítima'], inplace=True)
+
+# Calcular a contagem de idades e ordená-la
+idade_counts = df_crimes_sexuais['Idade da Vítima'].value_counts().sort_index()
+
+# Remover linhas com valores nulos na coluna 'Raça da Vítima'
+df_crimes_sexuais.dropna(subset=['Raça da Vítima'], inplace=True)
+
+# Calcular a contagem de raças das vítimas
+raca_counts = df_crimes_sexuais['Raça da Vítima'].value_counts()
+
+# Calcular a contagem por dia da semana
+df_crimes_sexuais['Data'] = pd.to_datetime(df_crimes_sexuais['Data'], errors='coerce')
+df_crimes_sexuais['Dia da Semana'] = df_crimes_sexuais['Data'].dt.day_name(locale='pt_BR')
+dias_semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo']
+df_crimes_sexuais['Dia da Semana'] = df_crimes_sexuais['Dia da Semana'].apply(lambda x: dias_semana[df_crimes_sexuais['Data'].dt.dayofweek[df_crimes_sexuais['Data'].dt.dayofweek == df_crimes_sexuais['Data'].dt.dayofweek].index[0]])
+dia_semana_counts = df_crimes_sexuais['Dia da Semana'].value_counts().reindex(dias_semana)
+
+# Calcular os percentuais
+dia_semana_percent = (dia_semana_counts / dia_semana_counts.sum()) * 100
+
+@app.route('/')
+def index():
+    # Gráfico de barras para idade das vítimas
+    plt.figure(figsize=(20, 10))
+    plt.bar(idade_counts.index, idade_counts.values, color='skyblue')
+    plt.xlabel('Idade da Vítima', fontsize=16)
+    plt.ylabel('Quantidade', fontsize=16)
+    plt.title('Distribuição de Idades das Vítimas', fontsize=18)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    img_idade = io.BytesIO()
+    plt.savefig(img_idade, format='png')
+    img_idade.seek(0)
+    grafico_idade_base64 = base64.b64encode(img_idade.getvalue()).decode()
+
+    # Gráfico de barras para raça das vítimas
+    plt.figure(figsize=(20, 10))
+    raca_counts.plot(kind='bar', color='Indigo')
+    plt.xlabel('Raça da Vítima', fontsize=16)
+    plt.ylabel('Quantidade', fontsize=16)
+    plt.title('Distribuição por Raça das Vítimas', fontsize=18)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    img_raca = io.BytesIO()
+    plt.savefig(img_raca, format='png')
+    img_raca.seek(0)
+    grafico_raca_base64 = base64.b64encode(img_raca.getvalue()).decode()
+
+    # Gráfico de barras para dia da semana dos crimes (percentual)
+    plt.figure(figsize=(20, 10))
+    dia_semana_percent.plot(kind='bar', color='Indigo')
+    plt.xlabel('Dia da Semana', fontsize=16)
+    plt.ylabel('Percentual', fontsize=16)
+    plt.title('Percentual de Vítimas de Crimes Sexuais por Dia da Semana', fontsize=18)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    img_dia_semana = io.BytesIO()
+    plt.savefig(img_dia_semana, format='png')
+    img_dia_semana.seek(0)
+    grafico_dia_semana_base64 = base64.b64encode(img_dia_semana.getvalue()).decode()
+
+    # Converter o DataFrame para HTML
+    table_html = idade_counts.to_frame(name='Quantidade').reset_index().rename(columns={'index': 'Idade'}).to_html(classes='table table-striped', index=False)
+
+    # Converter top 10 para HTML
+    top_10_html = idade_counts.head(10).to_frame(name='Quantidade').reset_index().rename(columns={'index': 'Idade'}).to_html(classes='table table-striped', index=False)
+
+    return render_template('index.html', table=table_html, top_10_table=top_10_html, grafico_idade=grafico_idade_base64, grafico_raca=grafico_raca_base64, grafico_dia_semana=grafico_dia_semana_base64, total_crimes=total_crimes)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+HTML
+Certifique-se de que o HTML está formatado corretamente para exibir os gráficos e dados. Abaixo está seu código HTML com as modificações para garantir que todos os elementos sejam exibidos corretamente:
+
+html
+Copiar código
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimes Sexuais</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        .custom-img {
+            width: 100%;
+            height: auto;
+        }
+        .grafico-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .grafico-container > div {
+            flex: 1 1 100%;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        function toggleTable() {
+            var fullTable = document.getElementById('fullTable');
+            var moreButton = document.getElementById('moreButton');
+            if (fullTable.style.display === 'none') {
+                fullTable.style.display = 'block';
+                moreButton.innerText = 'Ver Menos';
+            } else {
+                fullTable.style.display = 'none';
+                moreButton.innerText = 'Ver Mais';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Crimes Sexuais</h1>
+        
+        <!-- Exibir o total de crimes sexuais -->
+        <h2>Total de Crimes Sexuais: {{ total_crimes }}</h2>
+
+        <div class="grafico-container">
+            <!-- Gráfico de Idade -->
+            <div>
+                <h2>Distribuição por Idade</h2>
+                <img src="data:image/png;base64,{{ grafico_idade }}" alt="Gráfico de Idade" class="custom-img">
+            </div>
+            <!-- Gráfico de Raça -->
+            <div>
+                <h2>Distribuição por Raça</h2>
+                <img src="data:image/png;base64,{{ grafico_raca }}" alt="Gráfico de Raça" class="custom-img">
+            </div>
+            <!-- Gráfico por Dia da Semana -->
+            <div>
+                <h2>Percentual de Vítimas de Crimes Sexuais por Dia da Semana</h2>
+                <img src="data:image/png;base64,{{ grafico_dia_semana }}" alt="Gráfico por Dia da Semana" class="custom-img">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <!-- Tabela de Idades -->
+            <div class="col-md-12">
+                <h2>Tabela de Idades</h2>
+                <h3>Top 10 Idades</h3>
+                {{ top_10_table|safe }}
+                <button id="moreButton" class="btn btn-primary mt-3" onclick="toggleTable()">Ver Mais</button>
+                <div id="fullTable" style="display: none;">
+                    <h3>Tabela Completa</h3>
+                    {{ table|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+Explicações
+Locale para Português: Ao definir locale='pt_BR', garantimos que os dias da semana sejam exibidos em português.
+Reindexando Dias da Semana: Assegure-se de que a reindexação dos
+
+
+
+
+
+
+
