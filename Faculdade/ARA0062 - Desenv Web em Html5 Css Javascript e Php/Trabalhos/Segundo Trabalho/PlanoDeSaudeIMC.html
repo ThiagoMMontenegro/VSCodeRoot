@@ -3,33 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="PlanoDeSaudeIMC.js"></script>
+    <title>Plano de Saúde IMC</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="PlanoDeSaudeIMC.js" defer></script>
 </head>
 <body>
-    <label for="peso">Peso:</label>
-    <input type="text" id="peso" name="peso" value="85"><br><br>
-    <label for="altura">Altura:</label>
-    <input type="text" id="altura" name="altura" value="172"><br><br>
-    <label for="idade">Idade:</label>
-    <input type="text" id="idade" name="idade" value="41"><br><br>
-    <button class="btn btn-primary" onclick="main()">
-        Calcular IMC
-    </button>
-    <button class="btn btn-primary" onclick="main(altura, peso, idade)">
-        Comparar Planos
-    </button>
-    <h1 id="linebreak1">##############################</h1>
-    <h1 id="imc"></h1>
-    <h1 id="classificacao"></h1>
-    <h1 id="comorbidade"></h1>
-    <h1 id="linebreak2">##############################</h1>
-    <h1 id="precoplanoabasico"></h1>
-    <h1 id="precoplanoastandard"></h1>
-    <h1 id="precoplanoapremium"></h1>
-    <h1 id="linebreak3">##############################</h1>
-    <h1 id="precoplanobbasico"></h1>
-    <h1 id="precoplanobstandard"></h1>
-    <h1 id="precoplanobpremium"></h1>
+    <div class="container">
+        <div class="form-container">
+            <label for="peso">Peso (kg):</label>
+            <input type="text" id="peso" name="peso" value="">
+
+            <label for="altura">Altura (cm ou m):</label>
+            <input type="text" id="altura" name="altura" value="">
+
+            <label for="idade">Idade:</label>
+            <input type="text" id="idade" name="idade" value="">
+
+            <button class="btn" onclick="main()">Comparar Planos</button>
+        </div>
+        <div class="results-container">
+            <div class="divider"></div>
+            <div class="plan-container">
+                <div class="plan-a">
+                    <h2>Plano A</h2>
+                    <h3 id="precoplanoabasico"></h3>
+                    <h3 id="precoplanoastandard"></h3>
+                    <h3 id="precoplanoapremium"></h3>
+                </div>
+                <div class="plan-b">
+                    <h2>Plano B</h2>
+                    <h3 id="precoplanobbasico"></h3>
+                    <h3 id="precoplanobstandard"></h3>
+                    <h3 id="precoplanobpremium"></h3>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <h3 id="planomaisbarato" class="highlight"></h3>
+        </div>
+    </div>
 </body>
 </html>

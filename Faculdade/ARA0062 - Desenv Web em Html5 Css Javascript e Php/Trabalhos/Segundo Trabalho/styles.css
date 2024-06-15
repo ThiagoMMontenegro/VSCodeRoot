@@ -1,0 +1,103 @@
+/* Adicionar estilos de cor e gradiente */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #006400; /* Verde escuro */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f8ff; /* Azul claro */
+    padding: 20px;
+    border-radius: 15px; /* Aumentar a curvatura dos cantos */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #007BFF; /* Adicionar borda azul */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Aumentar o espaço entre os elementos */
+    margin-bottom: 25px;
+}
+
+.form-container label {
+    margin-bottom: 8px;
+    color: #000000; /* Cor preta sólida */
+    font-weight: bold; /* Deixar os textos em negrito */
+}
+
+.form-container input {
+    padding: 12px;
+    border: 2px solid #ccc; /* Aumentar a espessura da borda */
+    border-radius: 6px;
+    transition: border-color 0.3s;
+    color: #000000; /* Cor preta sólida */
+}
+
+.form-container input:focus {
+    border-color: #007BFF; /* Alterar a cor da borda ao focar */
+}
+
+.btn {
+    padding: 12px;
+    background-color: #28a745; /* Cor verde para o botão */
+    color: #000000; /* Cor preta sólida */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold; /* Deixar o texto em negrito */
+}
+
+.btn:hover {
+    background-color: #218838; /* Cor verde mais escura ao passar o mouse */
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
+.results-container h1, .results-container h3 {
+    font-size: 18px;
+    color: #000000; /* Cor preta sólida */
+}
+
+.plan-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.plan-a, .plan-b {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 15px 0;
+}
+
+.highlight {
+    font-size: 20px;
+    color: #000000; /* Cor preta sólida */
+    font-weight: bold;
+}
