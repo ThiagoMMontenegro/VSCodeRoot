@@ -88,27 +88,28 @@ function calcularIMC(peso, altura) {
 }
 
 function calcularClassificacaoComorbidade(imc) {
-    let classificacao;
-    let comorbidade;
+    var classificacao;
+    var comorbidade;
     if (imc < 18.5) {
         classificacao = "Baixo peso";
         comorbidade = "Baixo";
-    } else if (imc >= 18.5 && imc <= 24.9) {
+    } else if (imc >= 18.5 && imc < 25) {
         classificacao = "Normal";
         comorbidade = "Normal";
-    } else if (imc >= 25 && imc <= 29.9) {
+    } else if (imc >= 25 && imc < 30) {
         classificacao = "Sobrepeso";
         comorbidade = "Aumentado";
-    } else if (imc >= 30 && imc <= 34.9) {
+    } else if (imc >= 30 && imc < 35) {
         classificacao = "Obesidade";
         comorbidade = "Moderado";
-    } else if (imc >= 35 && imc <= 39.9) {
+    } else if (imc >= 35 && imc < 40) {
         classificacao = "Obesidade Mórbida";
         comorbidade = "Grave";
     } else if (imc >= 40) {
         classificacao = "Obesidade Mórbida";
         comorbidade = "Muito Grave";
     }
+    
     return { classificacao, comorbidade };
 }
 
@@ -121,12 +122,13 @@ function calcularPlanoA(imc, idade) {
 }
 
 function calcularPlanoB(imc, classificacao, comorbidade) {
+
     const fator = calcularFatorComorbidadePlanoB(classificacao, comorbidade);
 
     const preco_PlanoB_Basico = 100 + (fator * 10 * (imc / 10));
     const preco_PlanoB_Standard = (150 + (fator * 15)) * (imc / 10);
     const preco_PlanoB_Premium = (200 - (imc * 10) + (fator * 20)) * (imc / 10);
-
+    
     return { preco_PlanoB_Basico, preco_PlanoB_Standard, preco_PlanoB_Premium };
 }
 
